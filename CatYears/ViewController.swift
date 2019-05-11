@@ -8,11 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var yearsHuman: UITextField!
+    @IBOutlet weak var yearsCat: UILabel!
+    
+    @IBAction func getAge(_ sender: Any) {
+        yearsHuman.resignFirstResponder()
+        if let age = yearsHuman.text {
+            if let ageInt = Int(age) {
+                yearsCat.text = "Your cat is " + String (ageInt * 7) + " in cat years"
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.yearsHuman.delegate = self
     }
 
 
